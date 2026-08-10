@@ -1,4 +1,4 @@
-# IndieWeb Blog
+# IndieLite
 
 [![IndieWebCamp](https://indieweb.org/images/4/4a/indiewebcamp-button.png)](https://indieweb.org/)
 [![Webmention](https://indieweb.org/images/0/03/webmention-button.png)](https://indieweb.org/Webmention)
@@ -23,7 +23,7 @@ A minimal PHP-based IndieWeb blog supporting [IndieAuth](https://indieweb.org/In
 
 2. **Copy and configure `config.php`:**
    ```sh
-   cp example.config.php config.php
+   cp config.example.php config.php
    ```
    Edit `config.php` to configure your settings.
 

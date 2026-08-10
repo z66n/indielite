@@ -10,6 +10,7 @@ $indieweb_html_header = <<<HTML
   <link rel="token_endpoint" href="$token_endpoint">
   <!-- rel=me proofs -->
   <link rel="me" href="mailto:$admin_email">
+  <link rel="pgpkey" href="$pgp_key_url">
   <!-- Microsub endpoint -->
   <link rel="microsub" href="$microsub_endpoint">
   <!-- Webmention -->
@@ -27,12 +28,6 @@ $shared_html_header = <<<HTML
   <link rel="apple-touch-icon" sizes="180x180" href="$avatar_url&size=180">
   <link rel="icon" type="image/png" sizes="192x192" href="$avatar_url&size=192">
   <link rel="icon" type="image/png" sizes="512x512" href="$avatar_url&size=512">
-  <!-- Open Graph -->
-  <meta property="og:title" content="$site_name">
-  <meta property="og:description" content="$site_desc">
-  <meta property="og:image" content="$avatar_url&size=216">
-  <meta property="og:url" content="$site_url">
-  <meta property="og:type" content="website">
 HTML;
 
 function get_content_html($content) {
@@ -234,7 +229,7 @@ if ($slug) {
         <html lang="en">
         <head>
           <meta charset="UTF-8">
-          <title>$title</title>
+          <title>$title - $site_name</title>
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <meta name="description" content="$site_desc">
           <link rel="canonical" href="$site_url/?p=$slug">
@@ -243,7 +238,7 @@ if ($slug) {
         </head>
         <body>
         <header>
-          <a href="$site_url">$site_name</a>
+          <a href="$site_url/">$site_name</a>
         </header>
         <main>\n
         HTML;

@@ -8,6 +8,7 @@ $site_domain = "example.com";
 $site_url = "https://$site_domain";
 $author_name = "John Pearseed";
 $admin_email = "admin@$site_domain";
+$pgp_key_url = "$site_url/key.pub";
 $bio = "Welcome, traveller";
 $avatar_url = "https://www.gravatar.com/avatar/" . hash("sha256", strtolower(trim($admin_email))) . "?d=identicon";
 
