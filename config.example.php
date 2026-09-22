@@ -21,6 +21,7 @@ if (!is_dir($DATA_DIR)) mkdir($DATA_DIR, 0755, true);
 // IndieWeb endpoints
 $authorization_endpoint = "https://indieauth.com/auth";
 $token_endpoint = "https://tokens.indieauth.com/token";
+$indieauth_metadata = "https://indiekey.id/.well-known/oauth-authorization-server/s/1a2b3c4d5e6f7g8h9i0"; // sign up at https://indiekey.id
 $microsub_endpoint = "https://aperture.p3k.io/microsub/9999"; // sign up at https://aperture.p3k.io
 $webmention_endpoint = "https://webmention.io/$site_domain/webmention"; // sign up at https://webmention.io
 
