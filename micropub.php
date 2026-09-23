@@ -8,14 +8,18 @@ require_once __DIR__ . '/includes/send_webmentions.php'; // for sending webmenti
 
 // --- FUNCTIONS ---
 function verify_token($access_token) {
-    global $token_endpoint; // IndieAuth token verification
-    $headers = ["Authorization: Bearer $access_token"];
-    $ch = curl_init($token_endpoint);
+    global $introspection_endpoint, $micropub_credential;
+    $headers = ["Authorization: Bearer $micropub_credential"];
+    $ch = curl_init($introspection_endpoint);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+        'token' => $access_token,
+    ]));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $res = curl_exec($ch);
     if (!$res) return false;
-    parse_str($res, $data);
+    $data = json_decode($res, true);
     return isset($data['me']) ? $data['me'] : false;
 }
 

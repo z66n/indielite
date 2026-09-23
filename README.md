@@ -8,7 +8,7 @@ A minimal PHP-based IndieWeb blog supporting [IndieAuth](https://indieweb.org/In
 
 ## Features
 
-- IndieAuth authentication via [IndieAuth](https://indieauth.com/)
+- IndieAuth authentication via [IndieKey](https://indiekey.id/)
 - Microformats2 support
 - Micropub endpoint (`/micropub.php`) compatible with [Quill](https://quill.p3k.io/)
 - Syndication to other Micropub endpoints

@@ -1,6 +1,9 @@
 <?php
 // example.config.php - rename to config.php and update values
 
+// Load helpers
+require_once __DIR__ . '/includes/fetch_indieauth_metadata.php';
+
 // Site info
 $site_name = "My IndieWeb Blog";
 $site_desc = "A simple Micropub-powered blog";
@@ -19,9 +22,13 @@ $DATA_DIR = __DIR__ . '/data'; // folder to store cached webmention data
 if (!is_dir($DATA_DIR)) mkdir($DATA_DIR, 0755, true);
 
 // IndieWeb endpoints
-$authorization_endpoint = "https://indieauth.com/auth";
-$token_endpoint = "https://tokens.indieauth.com/token";
 $indieauth_metadata = "https://indiekey.id/.well-known/oauth-authorization-server/s/1a2b3c4d5e6f7g8h9i0"; // sign up at https://indiekey.id
+$metadata = fetch_indieauth_metadata($indieauth_metadata);
+$authorization_endpoint = $metadata['authorization_endpoint'];
+$token_endpoint = $metadata['token_endpoint'];
+$introspection_endpoint = $metadata['introspection_endpoint'];
+$micropub_credential = '1a2b3c4d5e6f7g8h9i0';
+$microsub_credential = '1a2b3c4d5e6f7g8h9i0';
 $microsub_endpoint = "https://aperture.p3k.io/microsub/9999"; // sign up at https://aperture.p3k.io
 $webmention_endpoint = "https://webmention.io/$site_domain/webmention"; // sign up at https://webmention.io
 

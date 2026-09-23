@@ -6,9 +6,9 @@ require_once __DIR__ . '/config.php';
 
 $indieweb_html_header = <<<HTML
   <!-- IndieAuth discovery -->
+  <link rel="indieauth-metadata" href="$indieauth_metadata">
   <link rel="authorization_endpoint" href="$authorization_endpoint">
   <link rel="token_endpoint" href="$token_endpoint">
-  <link rel="indieauth-metadata" href="$indieauth_metadata">
   <!-- rel=me proofs -->
   <link rel="me" href="mailto:$admin_email">
   <link rel="pgpkey" href="$pgp_key_url">
